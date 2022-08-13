@@ -17,7 +17,6 @@ function App() {
       <MoodCard></MoodCard>
       <MoodCard></MoodCard>
       <MoodCard></MoodCard>
-      <MoodCard></MoodCard>
     </div></div></div></div>
   );
 }
