@@ -5,8 +5,8 @@ function MoodScreen() {
   return (
     <div className='w-full h-full flex flex-col justify-center'>
         <div className="w-full h-full z-100">
-            <img className="w-full h-[2000px] absolute" src={bgImg} alt="" />
-            <div className='w-full h-[2000px] absolute bg-purple/70 '></div>
+            <img className="w-full h-[1200px] absolute" src={bgImg} alt="" />
+            <div className='w-full h-[1200px] absolute bg-purple/70 '></div>
         </div>
         <div className='max-w[1240px] my-10 mx-40 px-20 bg-content bg-opacity-30 backdrop-filter backdrop-blur-lg rounded-xl shadow-2xl backdrop-filter-blur'>
           <h1 className='text-3xl text-white py-5 text-center font-bold'>Moods</h1>

@@ -2,14 +2,22 @@ import React from 'react'
 import bgImg from '../assets/manzara.png'
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
-
+import { useNavigate } from "react-router-dom";
 import {GlobeIcon, ArrowRightIcon } from '@heroicons/react/outline'
 import {DocumentTextIcon, PencilIcon,MusicNoteIcon,SparklesIcon} from '@heroicons/react/solid'
 function HomePage() {
   const options = [
     'one', 'two', 'three'
   ];
- 
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `newPath`; 
+    navigate("/write1");
+  }
+  const routeMood = () =>{ 
+    let path = `newPath`; 
+    navigate("/moods");
+  }
 
   return (
     <div className='h-screen flex flex-col justify-center items-center text-white text-center'>
@@ -22,7 +30,7 @@ function HomePage() {
         <div className="bg-white rounded-xl shadow-2xl mt-6">
             <div className="p-5 flex justify-center items-center">
                 <button className='bg-purple flex items-center rounded-lg px-4 py-2 text-white mx-3 border-2 border-purple'><GlobeIcon className='w-5 mr-1'></GlobeIcon>İlham Al</button>
-                <button className='text-purple flex items-center rounded-lg  px-4 py-2 bg-white mx-3 border-2 border-purple'><DocumentTextIcon className='w-5 mr-1'></DocumentTextIcon>Yazıyorum</button>
+                <button onClick={routeChange} className='text-purple flex items-center rounded-lg  px-4 py-2 bg-white mx-3 border-2 border-purple'><DocumentTextIcon className='w-5 mr-1'></DocumentTextIcon>Yazıyorum</button>
                 <button className='text-purple flex items-center rounded-lg px-4 py-2 bg-white mx-3 border-2 border-purple'><PencilIcon className='w-5 mr-1'></PencilIcon>Çiziyorum</button>
                 <button className='text-purple flex items-center rounded-lg px-4 py-2 bg-white mx-3 border-2 border-purple'><SparklesIcon className='w-5 mr-1'></SparklesIcon>Düşünüyorum</button>
                 <button className='text-purple flex items-center rounded-lg px-4 py-2 bg-white mx-3 border-2 border-purple'> <MusicNoteIcon className='w-5 mr-1'></MusicNoteIcon>Besteliyorum</button>
@@ -33,7 +41,7 @@ function HomePage() {
         <div className="bg-white rounded-xl shadow-2xl my-6 mx-[100px]">
             <div className="p-5 flex justify-center items-center">
             <Dropdown className='w-full rounded-l-lg text-left' options={options}  placeholder="Bugün nasıl hissediyorsun?" />
-            <button className='rounded-r-lg bg-purple flex flex-row items-center px-[16px] py-[8px] w-[130px]' placeholder=''>Ortamı bul</button>
+            <button onClick={routeMood} className='rounded-r-lg bg-purple flex flex-row items-center px-[16px] py-[8px] w-[130px]' placeholder=''>Ortamı bul</button>
             </div>
                         
         </div>
