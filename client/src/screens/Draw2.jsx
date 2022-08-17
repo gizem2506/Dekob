@@ -86,7 +86,7 @@ function Draw2() {
             <img className="w-full h-screen absolute object-cover" src={bgImg} alt="" />
             <div className='w-full h-screen absolute  bg-purple/70 '></div>
         </div>
-        <div className="App z-10 w-[1000px] flex flex-col">
+        <div className="App z-10 ">
     <canvas 
       style={{
         border: "1px solid #000",
