@@ -10,9 +10,13 @@ function HomePage() {
     'one', 'two', 'three'
   ];
   let navigate = useNavigate(); 
-  const routeChange = () =>{ 
+  const routeWrite = () =>{ 
     let path = `newPath`; 
     navigate("/write1");
+  }
+  const routeDraw = () =>{ 
+    let path = `newPath`; 
+    navigate("/draw");
   }
   const routeMood = () =>{ 
     let path = `newPath`; 
@@ -30,8 +34,8 @@ function HomePage() {
         <div className="bg-white rounded-xl shadow-2xl mt-6">
             <div className="p-5 flex justify-center items-center">
                 <button className='bg-purple flex items-center rounded-lg px-4 py-2 text-white mx-3 border-2 border-purple'><GlobeIcon className='w-5 mr-1'></GlobeIcon>İlham Al</button>
-                <button onClick={routeChange} className='text-purple flex items-center rounded-lg  px-4 py-2 bg-white mx-3 border-2 border-purple'><DocumentTextIcon className='w-5 mr-1'></DocumentTextIcon>Yazıyorum</button>
-                <button className='text-purple flex items-center rounded-lg px-4 py-2 bg-white mx-3 border-2 border-purple'><PencilIcon className='w-5 mr-1'></PencilIcon>Çiziyorum</button>
+                <button onClick={routeWrite} className='text-purple flex items-center rounded-lg  px-4 py-2 bg-white mx-3 border-2 border-purple'><DocumentTextIcon className='w-5 mr-1'></DocumentTextIcon>Yazıyorum</button>
+                <button onClick={routeDraw} className='text-purple flex items-center rounded-lg px-4 py-2 bg-white mx-3 border-2 border-purple'><PencilIcon className='w-5 mr-1'></PencilIcon>Çiziyorum</button>
                 <button className='text-purple flex items-center rounded-lg px-4 py-2 bg-white mx-3 border-2 border-purple'><SparklesIcon className='w-5 mr-1'></SparklesIcon>Düşünüyorum</button>
                 <button className='text-purple flex items-center rounded-lg px-4 py-2 bg-white mx-3 border-2 border-purple'> <MusicNoteIcon className='w-5 mr-1'></MusicNoteIcon>Besteliyorum</button>
             </div>

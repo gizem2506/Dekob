@@ -2,6 +2,7 @@ import React from 'react'
 import bgImg from "../assets/manzara3.png"
 import {ArrowRightIcon, RefreshIcon } from '@heroicons/react/outline'
 function Write2() {
+
   return (
     <div className='w-full h-screen flex flex-col justify-center'>
         <div className="w-full h-screen absolute z-100">
