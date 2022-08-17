@@ -18,7 +18,7 @@ function Write5() {
         </div>
         <div className='max-w[1240px] m-auto px-40 text-white z-10'>
             <div className='flex items-center mb-5'>
-                <p className='mr-3'>4</p>
+                <p className='mr-3'>5</p>
                 <h1 className='text-2xl font-bold'>Özgür olun, daha da özgür... En özgür hissedeceğiniz hale bürünmeye çalışın</h1>
             </div>
             <p className='text-white mx-5 mb-2'> Burada sizin için seçilen ortamlarımızdan yararlanabilirsiniz </p>

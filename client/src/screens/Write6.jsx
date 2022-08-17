@@ -1,5 +1,5 @@
 import React from 'react'
-import bgImg from "../assets/manzara2.png"
+import bgImg from "../assets/manzara5.jpeg"
 import {HomeIcon } from '@heroicons/react/outline'
 import { useNavigate } from "react-router-dom";
 
@@ -7,7 +7,7 @@ function Write6() {
     let navigate = useNavigate(); 
     const routeChange = () =>{ 
       let path = `newPath`; 
-      navigate("/write2");
+      navigate("/");
     }
   
   return (
