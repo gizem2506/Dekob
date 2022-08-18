@@ -19,10 +19,10 @@ function Write4() {
         <div className='max-w[1240px] m-auto px-40 text-white z-10'>
             <div className='flex items-center mb-5'>
                 <p className='mr-3'>4</p>
-                <h1 className='text-2xl font-bold'>Çok okumak, daha güzel yazmak için bir yoldur. Eğer ilhamınızın kapalı olduğunu düşünüyorsanız yazmayı bırakın ve okumaya başlayın.</h1>
+                <h1 className='text-md md:text-2xl font-bold'>Çok okumak, daha güzel yazmak için bir yoldur. Eğer ilhamınızın kapalı olduğunu düşünüyorsanız yazmayı bırakın ve okumaya başlayın.</h1>
             </div>
             <a className='text-[#56E1FF] mx-5 flex' href=""><RefreshIcon className='w-5 mr-2'></RefreshIcon> Rastgele kitap öner</a>
-            <div className='grid grid-cols-4 gap-y-5 gap-x-7 m-5'>
+            <div className='grid grid-cols-2 md:grid-cols-4 gap-y-5 gap-x-7 m-5'>
                 <div className='flex flex-col items-center'>
                     <img className='m-5 w-[150px]' src={kitap1} alt="" />
                     <p className='text-white text-lg'>Yazma Sanatı</p>
