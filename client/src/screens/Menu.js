@@ -3,15 +3,15 @@ import React from "react";
 const Menu = ({ setLineColor, setLineWidth, 
 setLineOpacity }) => {
   return (
-    <div className="Menu">
-      <label>Brush Color </label>
+    <div className="Menu flex justify-center gap-x-2 mt-5">
+      <label className="text-white">Renk </label>
       <input
         type="color"
         onChange={(e) => {
           setLineColor(e.target.value);
         }}
       />
-      <label>Brush Width </label>
+      <label className="text-white ml-4">Yazı boyutu </label>
       <input
         type="range"
         min="1"
@@ -20,7 +20,7 @@ setLineOpacity }) => {
           setLineWidth(e.target.value);
         }}
       />
-      <label>Brush Opacity</label>
+      <label className="text-white ml-4">Opaklık</label>
       <input
         type="range"
         min="1"

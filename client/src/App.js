@@ -22,10 +22,12 @@ import Think5 from "./screens/Think5";
 import Think6 from "./screens/Think6";
 import Compose from "./screens/Compose";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import Navbar from "./components/Navbar";
 function App() {
   return (
     <Router>
         <div>
+          <Navbar></Navbar>
           <Routes>
             <Route path='/' element={<HomePage/> } exact></Route>
             <Route path='/moods' element={<MoodScreen></MoodScreen>}></Route>
