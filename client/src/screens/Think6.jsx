@@ -7,7 +7,7 @@ function Think2() {
     let navigate = useNavigate(); 
     const routeChange = () =>{ 
       let path = `newPath`; 
-      navigate("/think3");
+      navigate("/");
     }
   
   return (
@@ -16,8 +16,8 @@ function Think2() {
             <img className="w-full h-screen absolute object-cover" src={bgImg} alt="" />
             <div className='w-full h-screen absolute  bg-purple/70 '></div>
         </div>
-        <div className='max-w[1240px] m-auto px-40 text-white z-10'>
-            <div className='flex flex-col md:flex-row md:items-center'>
+        <div className='max-w[1240px] m-auto  px-10 md:px-40 text-white z-10'>
+            <div className='flex flex-col md:flex-row md:items-center mb-5 mx-5 md:mx-0'>
                 <p className='mr-3'>6</p>
                 <h1 className='text-2xl font-bold'>Bulduğunuz fikrin pazardaki rakiplerini, olası müşterileri ve olan ürünlerin eksikliklerini inceleyin. </h1>
             </div>

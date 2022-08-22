@@ -20,6 +20,7 @@ import Think3 from "./screens/Think3";
 import Think4 from "./screens/Think4";
 import Think5 from "./screens/Think5";
 import Think6 from "./screens/Think6";
+import Compose from "./screens/Compose";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
             <Route path='/think4' element={<Think4></Think4>}></Route>
             <Route path='/think5' element={<Think5></Think5>}></Route>
             <Route path='/think6' element={<Think6></Think6>}></Route>
+            <Route path='/compose' element={<Compose></Compose>}></Route>
           </Routes>
         </div>
   </Router>
