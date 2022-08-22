@@ -3,8 +3,9 @@ import bgImg from "../assets/manzara14.jpg"
 import kitap1 from "../assets/yazmasanati.jpg"
 import {ArrowRightIcon, RefreshIcon } from '@heroicons/react/outline'
 import { useNavigate } from "react-router-dom";
-
+import axios from 'axios'
 function Write4() {
+    
     let navigate = useNavigate(); 
     const routeChange = () =>{ 
       let path = `newPath`; 
