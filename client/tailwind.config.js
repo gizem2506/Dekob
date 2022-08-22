@@ -23,9 +23,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'purple':'#6320EE'
-      }
+        'purple':'#6320EE',
+        'content':'#E0D1FF'
+      },
+    },
+    backdropFilter: {
+      'blur': 'blur(8px)',
     },
   },
-  plugins: [Myclass],
+  plugins: [Myclass,require('tailwindcss-filters'),],
+  
 }
