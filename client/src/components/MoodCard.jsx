@@ -1,8 +1,7 @@
 import React from 'react'
-import bgImg from "../assets/manzara.png"
 function MoodCard(props) {
   return (
-      <div className="bg-transparent group cursor-pointer group perspective h-[270px] w-[200px]">
+      <div className="bg-transparent group cursor-pointer group perspective h-[200px] w-[150px] lg:h-[180px] lg:w-[120px] xl:h-[270px] xl:w-[200px] md:h-[270px] md:w-[200px]">
         <div className="relative preserve-3d group-hover:my-rotate-y-180 w-full h-full duration-1000">
         <div className="absolute backface-hidden border-2 w-full h-full">
           <img src={props.bgImg} className="w-full h-full" alt=''/>
