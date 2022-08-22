@@ -16,7 +16,10 @@ import Draw6 from "./screens/Draw6";
 import Draw7 from "./screens/Draw7";
 import Think from "./screens/Think";
 import Think2 from "./screens/Think2";
-
+import Think3 from "./screens/Think3";
+import Think4 from "./screens/Think4";
+import Think5 from "./screens/Think5";
+import Think6 from "./screens/Think6";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 function App() {
   return (
@@ -40,6 +43,10 @@ function App() {
             <Route path='/draw7' element={<Draw7></Draw7>}></Route>
             <Route path='/think' element={<Think></Think>}></Route>
             <Route path='/think2' element={<Think2></Think2>}></Route>
+            <Route path='/think3' element={<Think3></Think3>}></Route>
+            <Route path='/think4' element={<Think4></Think4>}></Route>
+            <Route path='/think5' element={<Think5></Think5>}></Route>
+            <Route path='/think6' element={<Think6></Think6>}></Route>
           </Routes>
         </div>
   </Router>

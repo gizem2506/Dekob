@@ -1,5 +1,5 @@
 import React from 'react'
-import bgImg from "../assets/manzara9.jpg"
+import bgImg from "../assets/manzara19.jpg"
 import {ArrowRightIcon } from '@heroicons/react/outline'
 import { useNavigate } from "react-router-dom";
 
@@ -7,7 +7,7 @@ function Think2() {
     let navigate = useNavigate(); 
     const routeChange = () =>{ 
       let path = `newPath`; 
-      navigate("/think3");
+      navigate("/think5");
     }
   
   return (
@@ -18,10 +18,10 @@ function Think2() {
         </div>
         <div className='max-w[1240px] m-auto px-40 text-white z-10'>
             <div className='flex flex-col md:flex-row md:items-center'>
-                <p className='mr-3'>2</p>
-                <h1 className='text-2xl font-bold'>Kendinizin veya çevrenizdekilerim yaşadığı sorunları düşünün</h1>
+                <p className='mr-3'>4</p>
+                <h1 className='text-2xl font-bold'>İlgilendiğiniz alanda daha çok araştırın. </h1>
             </div>
-            <p className='text-white my-3'>Unutmayın her problem için ürün çıkmış olsa da ne kadarının sorunu çözdüğünü bilemeyiz.</p>
+            <p className='text-white my-3'>Belki bu sizi oradan oraya götürecektir.</p>
             <button onClick={routeChange} className='text-purple px-[16px] py-[8px] bg-white flex float-right items-center rounded-lg'> <span className='hidden md:block'>Devam edin</span>  <ArrowRightIcon className='w-5 md:ml-2'></ArrowRightIcon></button>
         </div>
     </div>
