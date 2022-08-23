@@ -3,7 +3,9 @@ import bgImg from "../assets/manzara4.jpeg";
 import { ArrowRightIcon, RefreshIcon } from "@heroicons/react/outline";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
 import { write3 } from "../axios";
+
 const baseUrl = "localhost:5001/api/v1/moods/uploadphoto";
 
 function Write3() {
