@@ -8,7 +8,7 @@ function Navbar() {
       navigate("/");
     }
   return (
-    <button onClick={routeHome} className='flex absolute bg-none z-10 mt-5 ml-5 items-center'>
+    <button onClick={routeHome} className='flex absolute bg-none z-10 mt-10 md:mt-5 ml-5 items-center'>
         <img className='w-[25px] mr-2' src={logo} alt="" />
         <h1 className='text-xl text-white '>Ambianche</h1>
     </button>
