@@ -30,6 +30,13 @@ router
   .get(moodController.getAllMoods)
   .post(upload.array("files"), moodController.addFileToDB);
 
+router
+  .route("/randomfour")
+  .get(moodController.aliasFourData, moodController.getAllMoods)
+  .post(upload.array("files"), moodController.addFileToDB);
+
+router.route("/:category").get(moodController.getMoodsForCategory);
+
 //router.route("/").get(moodController.getAllMoods);
 
 /*

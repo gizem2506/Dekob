@@ -14,6 +14,11 @@ const express = require("express"),
   multer = require("multer"),
   mongoose = require("mongoose");
 
+exports.aliasFourData = (req, res, next) => {
+  req.query.limit = 4;
+  next();
+};
+
 //const binary = mongoose.mongo.Binary;
 
 /*
@@ -73,6 +78,19 @@ exports.insertMood = async (req, res) => {
 };
 */
 
+exports.getMoodsForCategory = async (req, res) => {
+  const category = req.params.category;
+  const moods = await Mood.find().filter({ category: category });
+
+  res.status(200).json({
+    status: "success",
+    results: moods.length,
+    data: {
+      moods,
+    },
+  });
+};
+
 exports.getAllMoods = async (req, res) => {
   try {
     /*
@@ -83,7 +101,7 @@ exports.getAllMoods = async (req, res) => {
                     .paginate();
     */
 
-    const moods = await Mood.find();
+    const moods = await Mood.find().limit(req.query.limit);
     console.log(moods);
 
     res.status(200).json({
