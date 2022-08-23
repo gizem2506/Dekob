@@ -4,12 +4,15 @@ import {ArrowRightIcon, RefreshIcon } from '@heroicons/react/outline'
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const baseUrl = "localhost:5001/api/v1/moods/uploadphoto"
+
+
 function Think() {
     let navigate = useNavigate(); 
     const routeChange = () =>{ 
       let path = `newPath`; 
       navigate("/think2");
     }
+
     
     const [formData, setFormData] = React.useState([
         {
@@ -34,6 +37,7 @@ function Think() {
             console.log(error.message);
           });
       };
+
   return (
     <div className='w-full h-screen flex flex-col justify-center'>
         <div className="w-full h-screen absolute z-100">
@@ -63,6 +67,22 @@ function Think() {
                 <div>
                     <h1 className='text-2xl'>{item.title}</h1>
                     <p className='text-content text-[14px] md:text-[16px]'>{item.content}</p>
+
+                    <h1 className='text-2xl'>Konu 1</h1>
+                    <p className='text-content text-[14px] md:text-[16px]'>Konu 1 hakkında uzunca bir açıklama. Toplamda maksimum 2 satır olacak şekilde</p>
+                </div>
+                <div>
+                    <h1 className='text-2xl'>Konu 2</h1>
+                    <p className='text-content text-[14px] md:text-[16px]'>Konu 2 hakkında uzunca bir açıklama. Toplamda maksimum 2 satır olacak şekilde</p>
+                </div>
+                <div>
+                    <h1 className='text-2xl'>Konu 3</h1>
+                    <p className='text-content text-[14px] md:text-[16px]'>Konu 3 hakkında uzunca bir açıklama. Toplamda maksimum 2 satır olacak şekilde</p>
+                </div>
+                <div>
+                    <h1 className='text-2xl'>Konu 4</h1>
+                    <p className='text-content text-[14px] md:text-[16px]'>Konu 4 hakkında uzunca bir açıklama. Toplamda maksimum 2 satır olacak şekilde</p>
+
                 </div>
             </div>
             <button onClick={routeChange} className='text-purple px-[16px] py-[8px] bg-white flex float-right items-center rounded-lg'> <span className='hidden md:block'>Devam edin</span>  <ArrowRightIcon className='w-5 md:ml-2'></ArrowRightIcon></button>

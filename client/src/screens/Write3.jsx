@@ -20,6 +20,7 @@ function Write3() {
     },
   ]);
   var item = formData[Math.floor(Math.random() * formData.length)];
+
   React.useEffect(() => {
     getData();
   }, []);
@@ -50,8 +51,7 @@ function Write3() {
           <p className="mr-3">3</p>
           <h1 className="text-2xl font-bold">
             Hata yapmaktan korkma, en saçma fikirler sana ilham olabilir ve
-            harikalar yaratabilirsin. Hemingway’in de dediği gibi, sarhoşken
-            yazın, ayıkken düzeltin.</h1>
+            harikalar yaratabilirsin. Hemingway’in de dediği gibi, sarhoşken yazın, ayıkken düzeltin.</h1>
         </div>
         <p className="text-white mx-5 mb-2">
           İlham gelmesi için rastgele kelimeler üretelim dedik!{" "}
@@ -76,6 +76,7 @@ function Write3() {
           <p>{item.title}</p>
           <p>{item.title}</p>
           <p>{item.title}</p>
+
         </div>
         <button
           onClick={routeChange}

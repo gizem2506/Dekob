@@ -50,10 +50,16 @@ function Draw2() {
             <a className='text-[#56E1FF] mx-5 flex' href=""><RefreshIcon className='w-5 mr-2'></RefreshIcon> Rastgele challenge öner</a>
             <div className='grid grid-cols-2 gap-y-5 gap-x-7 m-5'>
                 <div className='flex flex-col items-center'>
+
                     <img className='m-5 w-[300px] md:hover:w-[500px] hover:absolute' src={item.img} alt="" />
                 </div>
                 <div className='flex flex-col items-center'>
                     <img className='m-5 w-[300px] hover:absolute md:hover:w-[500px] ' src={item.img} alt="" />
+
+                    <img className='m-5 w-[300px] md:hover:w-[500px] hover:absolute' src={che1} alt="" />
+                </div>
+                <div className='flex flex-col items-center'>
+                    <img className='m-5 w-[300px] hover:absolute md:hover:w-[500px] ' src={che2} alt="" />
                 </div>
             </div>
             <button onClick={routeChange} className='text-purple px-[16px] py-[8px] bg-white flex float-right items-center rounded-lg'> <span className='hidden md:block'>Devam edin</span>  <ArrowRightIcon className='w-5 md:ml-2'></ArrowRightIcon></button>

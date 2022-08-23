@@ -2,8 +2,10 @@ import React from 'react'
 import bgImg from "../assets/manzara17.jpg"
 import {ArrowRightIcon, RefreshIcon } from '@heroicons/react/outline'
 import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 const baseUrl = "localhost:5001/api/v1/moods/uploadphoto";
+
 
 function Think3() {
     let navigate = useNavigate(); 
@@ -11,6 +13,7 @@ function Think3() {
       let path = `newPath`; 
       navigate("/think4");
     }
+
     const [formData, setFormData] = React.useState([
       {
         title: "",
@@ -53,6 +56,11 @@ function Think3() {
                     <h1 className='text-xl'>{item.title}</h1>
                     <h1 className='text-xl'>{item.title}</h1>
                     <h1 className='text-xl'>{item.title}</h1>
+
+                    <h1 className='text-xl'>Soru 1</h1>
+                    <h1 className='text-xl'>Soru 2</h1>
+                    <h1 className='text-xl'>Soru 3</h1>
+                    <h1 className='text-xl'>Soru 4</h1>
             </div>
             <button onClick={routeChange} className='text-purple px-[16px] py-[8px] bg-white flex float-right items-center rounded-lg'> <span className='hidden md:block'>Devam edin</span>  <ArrowRightIcon className='w-5 md:ml-2'></ArrowRightIcon></button>
         </div>

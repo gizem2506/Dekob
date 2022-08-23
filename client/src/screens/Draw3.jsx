@@ -4,8 +4,10 @@ import pat1 from "../assets/pattern.jpg"
 import pat2 from "../assets/pattern2.jpg"
 import {ArrowRightIcon, RefreshIcon } from '@heroicons/react/outline'
 import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 const baseUrl = "localhost:5001/api/v1/moods/uploadphoto";
+
 
 function Draw3() {
     let navigate = useNavigate(); 
@@ -13,6 +15,7 @@ function Draw3() {
       let path = `newPath`; 
       navigate("/draw4");
     }
+
     const [formData, setFormData] = React.useState([
         {
           title: "",
@@ -50,10 +53,15 @@ function Draw3() {
             <a className='text-[#56E1FF] mx-5 flex' href=""><RefreshIcon className='w-5 mr-2'></RefreshIcon> Rastgele desen öner</a>
             <div className='grid grid-cols-2 gap-y-5 gap-x-7 m-5'>
                 <div className='flex flex-col items-center'>
+
                     <img className='m-5 w-[300px] h-[350px]' src={item.img} alt="" />
                 </div>
                 <div className='flex flex-col items-center'>
                     <img className='m-5 w-[300px] h-[350px]' src={item.img} alt="" />
+                    <img className='m-5 w-[300px] h-[350px]' src={pat1} alt="" />
+                </div>
+                <div className='flex flex-col items-center'>
+                    <img className='m-5 w-[300px] h-[350px]' src={pat2} alt="" />
                 </div>
             </div>
             <button onClick={routeChange} className='text-purple px-[16px] py-[8px] bg-white flex float-right items-center rounded-lg'> <span className='hidden md:block'>Devam edin</span>  <ArrowRightIcon className='w-5 md:ml-2'></ArrowRightIcon></button>
