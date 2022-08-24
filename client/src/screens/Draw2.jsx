@@ -1,9 +1,8 @@
 import React from 'react'
 import bgImg from "../assets/manzara19.jpg"
-import che1 from "../assets/drawche.jpg"
-import che2 from "../assets/drawche2.jpg"
 import {ArrowRightIcon, RefreshIcon } from '@heroicons/react/outline'
 import { useNavigate } from "react-router-dom";
+import {arrayBuffer} from "array-buffer"
 import axios from "axios";
 const baseUrl = "localhost:5001/api/v1/moods/uploadphoto";
 function Draw2() {
@@ -15,7 +14,7 @@ function Draw2() {
     const [formData, setFormData] = React.useState([
         {
           title: "",
-          category: "",
+          category: "draw2",
           content:"",
           img: null,
         },
@@ -50,6 +49,7 @@ function Draw2() {
             <div className='grid grid-cols-2 gap-y-5 gap-x-7 m-5'>
                 <div className='flex flex-col items-center'>
                     <img className='m-5 w-[300px] md:hover:w-[500px] hover:absolute' src={item.img} alt="" />
+                    <p></p>
                 </div>
                 <div className='flex flex-col items-center'>
                     <img className='m-5 w-[300px] hover:absolute md:hover:w-[500px] ' src={item.img} alt="" />

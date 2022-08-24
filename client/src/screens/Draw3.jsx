@@ -22,6 +22,7 @@ function Draw3() {
         },
       ]);
       var item = formData[Math.floor(Math.random() * formData.length)];
+      
       React.useEffect(() => {
         getData();
       }, []);
@@ -36,6 +37,7 @@ function Draw3() {
             console.log(error.message);
           });
       };
+      
   return (
     <div className='w-full h-screen flex flex-col justify-center'>
         <div className="w-full h-screen absolute z-100">

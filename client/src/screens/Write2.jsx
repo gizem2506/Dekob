@@ -47,15 +47,15 @@ function Write2() {
             <a className='text-[#56E1FF] mx-5 flex' href=""><RefreshIcon className='w-5 mr-2'></RefreshIcon> Rastgele konu üret</a>
             <div className='grid md:grid-cols-2 gap-y-5 gap-x-7 m-5'>
                 <div>
-                    <h1 className='text-2xl'>{item.title}</h1>
+                    <h1 className='text-2xl'>{formData[Math.floor(Math.random() * formData.length)].title}</h1>
                     <p className='text-content text-[14px] md:text-[16px]'>{item.content}</p>
                 </div>
                 <div>
-                    <h1 className='text-2xl'>Konu 2</h1>
+                    <h1 className='text-2xl'>{formData[Math.floor(Math.random() * formData.length)].title}</h1>
                     <p className='text-content text-[14px] md:text-[16px]'>Konu 2 hakkında uzunca bir açıklama. Toplamda maksimum 2 satır olacak şekilde</p>
                 </div>
                 <div>
-                    <h1 className='text-2xl'>Konu 3</h1>
+                    <h1 className='text-2xl'>{formData[Math.floor(Math.random() * formData.length)].title}</h1>
                     <p className='text-content text-[14px] md:text-[16px]'>Konu 3 hakkında uzunca bir açıklama. Toplamda maksimum 2 satır olacak şekilde</p>
                 </div>
                 <div>

@@ -9,7 +9,7 @@ const moodSchema = new mongoose.Schema({
     type: String,
     required: [true, "A mood must have a category"],
   },
-  conent: {
+  content: {
     type: String,
   },
   img: [
