@@ -35,7 +35,10 @@ function Write3() {
         console.log(error.message);
       });
   };
+  const sozluk = require("sozlukjs");
 
+  sozluk.TDKDictionary.getMeaningData("sözlük")
+    .then(data => console.log(data));
   return (
     <div className="w-full h-screen flex flex-col justify-center">
       <div className="w-full h-screen absolute z-100">

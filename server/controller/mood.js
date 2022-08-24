@@ -155,6 +155,7 @@ exports.addFileToDB = async (req, res) => {
     });
     var final_img = {
       title: req.body.title,
+      content: req.body.content,
       category: req.body.category,
       img: imgList,
     };

@@ -11,7 +11,7 @@ function Write4() {
   let navigate = useNavigate();
   const routeChange = () => {
     let path = `newPath`;
-    navigate("/write4");
+    navigate("/write5");
   };
 
   const [formData, setFormData] = React.useState([
