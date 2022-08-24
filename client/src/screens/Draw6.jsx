@@ -7,6 +7,7 @@ import obje4 from "../assets/obje4.jpg"
 import {ArrowRightIcon, RefreshIcon } from '@heroicons/react/outline'
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { io } from "socket.io-client";
 const baseUrl = "localhost:5001/api/v1/moods/uploadphoto";
 
 function Draw6() {
@@ -26,6 +27,8 @@ function Draw6() {
       var item = formData[Math.floor(Math.random() * formData.length)];
       React.useEffect(() => {
         getData();
+
+
       }, []);
       const getData = async () => {
         await axios
@@ -53,20 +56,20 @@ function Draw6() {
             <div className='grid grid-cols-2 lg:grid-cols-4 gap-y-5 gap-x-7 m-5'>
                 <div className='flex flex-col items-center'>
                     <img className='m-5 w-[100px] h-[100px] md:w-[150px] md:h-[150px]' src={item.img} alt="" />
-                    <p className='text-white text-md md:text-lg'>{item.content}</p>
+                    <p className='text-white text-md md:text-lg'>{item.title}</p>
                 </div>
                 <div className='flex flex-col items-center'>
                     <img className='m-5 w-[100px] h-[100px] md:w-[150px] md:h-[150px]' src={item.img} alt="" />
-                    <p className='text-white text-md md:text-lg'>{item.content}</p>
+                    <p className='text-white text-md md:text-lg'>{item.title}</p>
                 </div>
                 <div className='flex flex-col items-center'>
                     <img className='m-5 w-[100px] h-[100px] md:w-[150px] md:h-[150px]' src={item.img} alt="" />
-                    <p className='text-white text-md md:text-lg'>{item.content}</p>
+                    <p className='text-white text-md md:text-lg'>{item.title}</p>
  
                 </div>
                 <div className='flex flex-col items-center'>
                     <img className='m-5 w-[100px] h-[100px] md:w-[150px] md:h-[150px]' src={item.img} alt="" />
-                    <p className='text-white text-md md:text-lg'>{item.content}</p>
+                    <p className='text-white text-md md:text-lg'>{item.title}</p>
                 </div>
             </div>
             <button onClick={routeChange} className='text-purple px-[16px] py-[8px] bg-white flex float-right items-center rounded-lg'> <span className='hidden md:block'>Devam edin</span>  <ArrowRightIcon className='w-5 md:ml-2'></ArrowRightIcon></button>
