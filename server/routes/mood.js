@@ -3,9 +3,6 @@ const moodController = require("../controller/mood");
 const multer = require("multer");
 const mongoose = require("mongoose");
 const fs = require("fs");
-const conn = mongoose.createConnection("mongodb://localhost:27018/gridfs");
-const { GridFsStorage } = require("multer-gridfs-storage");
-var Grid = require("gridfs-stream");
 
 const router = express.Router();
 const Mood = require("../models/mood");
@@ -30,12 +27,11 @@ router
   .get(moodController.getAllMoods)
   .post(upload.array("files"), moodController.addFileToDB);
 
-router
-  .route("/randomfour")
-  .get(moodController.aliasFourData, moodController.getAllMoods)
-  .post(upload.array("files"), moodController.addFileToDB);
+router.route("/uploadphoto/:category").get(moodController.getMoodsForCategory);
 
-router.route("/:category").get(moodController.getMoodsForCategory);
+router
+  .route("/random-four")
+  .get(moodController.aliasFourData, moodController.getAllMoods);
 
 //router.route("/").get(moodController.getAllMoods);
 

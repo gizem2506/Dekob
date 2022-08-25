@@ -1,6 +1,4 @@
 const Mood = require("../models/mood");
-const GridFsStorage = require("multer-gridfs-storage");
-const Grid = require("gridfs-stream");
 const crypto = require("crypto");
 const path = require("path");
 //const fileUpload = require("express-fileupload");
@@ -79,8 +77,8 @@ exports.insertMood = async (req, res) => {
 */
 
 exports.getMoodsForCategory = async (req, res) => {
-  const category = req.params.category;
-  const moods = await Mood.find().filter({ category: category });
+  const reqCategory = req.params.category;
+  const moods = await Mood.find({ category: reqCategory }).filter();
 
   res.status(200).json({
     status: "success",
@@ -102,7 +100,15 @@ exports.getAllMoods = async (req, res) => {
     */
 
     const moods = await Mood.find().limit(req.query.limit);
-    console.log(moods);
+    //console.log(moods);
+
+    /*
+    moods.map((mood) => {
+      mood.img.map((buffer) => {
+        base64_decode(buffer, `downloads/file-${Date.now()}`);
+      });
+    });
+    */
 
     res.status(200).json({
       status: "success",
@@ -146,12 +152,12 @@ exports.addFileToDB = async (req, res) => {
       var img = fs.readFileSync(file.path);
       var buffer = Buffer.from(img);
 
-      var img = {
+      var new_img = {
         data: buffer,
         contentType: file.mimetype,
       };
 
-      imgList.push(img);
+      imgList.push(new_img);
     });
     var final_img = {
       title: req.body.title,
