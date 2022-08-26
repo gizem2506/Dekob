@@ -16,7 +16,7 @@ function Chatting() {
   React.useEffect(() => {
     console.log(messageList);
     if(!socket){
-    socket = io("ws://192.168.1.5:5002",{
+    socket = io("ws://192.168.1.43:5002",{
       'reconnection': true,
       'reconnectionDelay': 500,
       'reconnectionAttempts': 10
@@ -39,12 +39,15 @@ function Chatting() {
     }
   }, []);
   
+ 
   console.log(JSON.parse(localStorage.getItem('messageList')))
 
   const handleMessage = (e) => {
     setMessage(e.target.value);
     
   }
+
+  
 
   return (
     <div>
@@ -61,7 +64,7 @@ function Chatting() {
                 <h1 className='text-xl font-bold'>Kullanıcı Adı: </h1>
             </div>
             <div className='flex flex-col'>
-              <input className='w-[500px] mb-7 h-[40px] text-black' type="text" onChange={(e)=>{
+              <input autoFocus={true} className='w-[500px] mb-7 h-[40px] text-black' type="text" onChange={(e)=>{
                 setUserName(e.target.value)
               }} />
             </div>
@@ -82,18 +85,20 @@ function Chatting() {
                 <p className='mr-3'></p>
                 <h1 className='text-xl font-bold'>Chat! </h1>
             </div>
-            <div className='overflow-scroll scroll-y-auto h-[300px]'>
+            <div className='overflow-scroll h-[300px]'>
             {messageList?.slice(messageList.length-12 < 0 ? 0 : messageList.length-12 ,messageList.length).map((message)=>{
                 return (<div className='flex justify-between'><p>{message.userName}:{message.message}</p><p>{message.time}</p></div>)
               })}
             </div>
             <div className='flex flex-col'>
-              <input className='w-[500px] mb-7 h-[40px] text-black' type="text" onChange={(e)=>handleMessage(e)} /> 
+              <input id='myInput' autoFocus={true} className='w-[500px] mb-7 h-[40px] text-black' type="text" onChange={(e)=>handleMessage(e)} /> 
               {/* setMessage(e.target.value) */}
             </div>
             <button type="submit" onClick={()=> {
               socket.emit("event",{message: message, userName:userName})
-            }} className='text-purple px-[16px] py-[8px] bg-white flex float-right items-center rounded-lg'><span className='hidden md:block'>Gönder</span><ArrowRightIcon className='w-5 md:ml-2'></ArrowRightIcon></button>
+              document.getElementById('myInput').value = ''
+            }
+            } className='text-purple px-[16px] py-[8px] bg-white flex float-right items-center rounded-lg'><span className='hidden md:block'>Gönder</span><ArrowRightIcon className='w-5 md:ml-2'></ArrowRightIcon></button>
             </form>
         </div>
     </div>)}
