@@ -16,7 +16,7 @@ function Chatting() {
   React.useEffect(() => {
     console.log(messageList);
     if(!socket){
-    socket = io("ws://192.168.1.46:5002",{
+    socket = io("ws://192.168.1.66:5002",{
       'reconnection': true,
       'reconnectionDelay': 500,
       'reconnectionAttempts': 10

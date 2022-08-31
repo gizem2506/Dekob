@@ -2,8 +2,8 @@ import React from 'react'
 import bgImg from "../assets/manzara19.jpg"
 import {ArrowRightIcon, RefreshIcon } from '@heroicons/react/outline'
 import { useNavigate } from "react-router-dom";
-import {arrayBuffer} from "array-buffer"
 import axios from "axios";
+
 const baseUrl = "localhost:5001/api/v1/moods/uploadphoto";
 function Draw2() {
     let navigate = useNavigate(); 
@@ -16,7 +16,7 @@ function Draw2() {
           title: "",
           category: "draw2",
           content:"",
-          img: null,
+          img: [],
         },
       ]);
       var item = formData[Math.floor(Math.random() * formData.length)];
@@ -28,8 +28,8 @@ function Draw2() {
           .get("http://localhost:5001/api/v1/moods/uploadphoto")
           .then((response) => {
             setFormData(response.data.data.moods);
-            //console.log(response.data.data.moods);
-          })
+            console.log(formData[0].img[0].path)
+          }) 
           .catch((error) => {
             console.log(error.message);
           });
@@ -48,8 +48,7 @@ function Draw2() {
             <a className='text-[#56E1FF] mx-5 flex' href=""><RefreshIcon className='w-5 mr-2'></RefreshIcon> Rastgele challenge öner</a>
             <div className='grid grid-cols-2 gap-y-5 gap-x-7 m-5'>
                 <div className='flex flex-col items-center'>
-                    <img className='m-5 w-[300px] md:hover:w-[500px] hover:absolute' src={item.img} alt="" />
-                    <p></p>
+                    <img className='m-5 w-[300px] md:hover:w-[500px] hover:absolute' src={formData.img} alt="" />
                 </div>
                 <div className='flex flex-col items-center'>
                     <img className='m-5 w-[300px] hover:absolute md:hover:w-[500px] ' src={item.img} alt="" />
