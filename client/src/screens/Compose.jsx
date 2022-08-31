@@ -16,7 +16,7 @@ function Chatting() {
   React.useEffect(() => {
     console.log(messageList);
     if(!socket){
-    socket = io("ws://192.168.1.43:5002",{
+    socket = io("ws://192.168.1.46:5002",{
       'reconnection': true,
       'reconnectionDelay': 500,
       'reconnectionAttempts': 10
@@ -46,8 +46,6 @@ function Chatting() {
     setMessage(e.target.value);
     
   }
-
-  
 
   return (
     <div>
@@ -92,6 +90,7 @@ function Chatting() {
             </div>
             <div className='flex flex-col'>
               <input id='myInput' autoFocus={true} className='w-[500px] mb-7 h-[40px] text-black' type="text" onChange={(e)=>handleMessage(e)} /> 
+              
               {/* setMessage(e.target.value) */}
             </div>
             <button type="submit" onClick={()=> {
