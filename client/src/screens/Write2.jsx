@@ -13,12 +13,15 @@ function Write2() {
     const [formData, setFormData] = React.useState([
         {
           title: "",
-          category: "",
+          category: "write2",
           content:"",
           img: null,
         },
       ]);
-      var item = formData[Math.floor(Math.random() * formData.length)];
+      var item1 = formData[Math.floor(Math.random() * formData.length)];
+      var item2 = formData[Math.floor(Math.random() * formData.length)];
+      var item3 = formData[Math.floor(Math.random() * formData.length)];
+      var item4 = formData[Math.floor(Math.random() * formData.length)];
       React.useEffect(() => {
         getData();
       }, []);
@@ -47,20 +50,20 @@ function Write2() {
             <a className='text-[#56E1FF] mx-5 flex' href=""><RefreshIcon className='w-5 mr-2'></RefreshIcon> Rastgele konu üret</a>
             <div className='grid md:grid-cols-2 gap-y-5 gap-x-7 m-5'>
                 <div>
-                    <h1 className='text-2xl'>{item.title}</h1>
-                    <p className='text-content text-[14px] md:text-[16px]'>{item.content}</p>
+                    <h1 className='text-2xl'>{item1.title}</h1>
+                    <p className='text-content text-[14px] md:text-[16px]'>{item1.content}</p>
                 </div>
                 <div>
-                    <h1 className='text-2xl'>Konu 2</h1>
-                    <p className='text-content text-[14px] md:text-[16px]'>Konu 2 hakkında uzunca bir açıklama. Toplamda maksimum 2 satır olacak şekilde</p>
+                    <h1 className='text-2xl'>{item2.title}</h1>
+                    <p className='text-content text-[14px] md:text-[16px]'>{item2.content}</p>
                 </div>
                 <div>
-                    <h1 className='text-2xl'>Konu 3</h1>
-                    <p className='text-content text-[14px] md:text-[16px]'>Konu 3 hakkında uzunca bir açıklama. Toplamda maksimum 2 satır olacak şekilde</p>
+                    <h1 className='text-2xl'>{item3.title}</h1>
+                    <p className='text-content text-[14px] md:text-[16px]'>{item3.content}</p>
                 </div>
                 <div>
-                    <h1 className='text-2xl'>Konu 4</h1>
-                    <p className='text-content text-[14px] md:text-[16px]'>Konu 4 hakkında uzunca bir açıklama. Toplamda maksimum 2 satır olacak şekilde</p>
+                    <h1 className='text-2xl'>{item4.title}</h1>
+                    <p className='text-content text-[14px] md:text-[16px]'>{item4.content}</p>
                 </div>
             </div>
             <button onClick={routeChange} className='text-purple px-[16px] py-[8px] bg-white flex float-right items-center rounded-lg'> <span className='hidden md:block'>Devam edin</span>  <ArrowRightIcon className='w-5 md:ml-2'></ArrowRightIcon></button>

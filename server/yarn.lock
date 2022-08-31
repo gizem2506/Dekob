@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@erkanarslan/turkish-inflection@^1.0.4":
+  "integrity" "sha512-o9H8QkpMT9RilUoJRzbiX3L6OnWdmM0NCzlgi3qXxlzLDDq46Y2KH57n1E3XgbY/k8icm5CV6YG59uJKbTJNfw=="
+  "resolved" "https://registry.npmjs.org/@erkanarslan/turkish-inflection/-/turkish-inflection-1.0.4.tgz"
+  "version" "1.0.4"
+
 "@postman/form-data@^3.1.1":
   "integrity" "sha512-vjh8Q2a8S6UCm/KKs31XFJqEEgmbjBmpPNVV2eVav6905wyFAwaUOBGA1NPBI4ERH9MMZc6w0umFgM6WbEPMdg=="
   "resolved" "https://registry.npmjs.org/@postman/form-data/-/form-data-3.1.1.tgz"
@@ -439,7 +444,7 @@
   "resolved" "https://registry.npmjs.org/encodeurl/-/encodeurl-1.0.2.tgz"
   "version" "1.0.2"
 
-"encoding@^0.1.0", "encoding@0.1.12":
+"encoding@0.1.12":
   "integrity" "sha512-bl1LAgiQc4ZWr++pNYUdRe/alecaHFeHxIJ/pNciqGdKXghaTCOwKkbKp6ye7pKZGu/GcaSXFk8PBVhgs+dJdA=="
   "resolved" "https://registry.npmjs.org/encoding/-/encoding-0.1.12.tgz"
   "version" "0.1.12"
@@ -592,6 +597,11 @@
   "integrity" "sha512-zJ2mQYM18rEFOudeV4GShTGIQ7RbzA7ozbU9I/XBpm7kqgMywgmylMwXHxZJmkVoYkna9d2pVXVXPdYTP9ej8Q=="
   "resolved" "https://registry.npmjs.org/fresh/-/fresh-0.5.2.tgz"
   "version" "0.5.2"
+
+"fsevents@~2.3.2":
+  "integrity" "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="
+  "resolved" "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz"
+  "version" "2.3.2"
 
 "function-bind@^1.1.1":
   "integrity" "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
@@ -890,7 +900,7 @@
     "mongodb-uri" "^0.9.7"
     "pump" "^3.0.0"
 
-"multer@^1.4.2", "multer@^1.4.4":
+"multer@^1.4.4":
   "integrity" "sha512-2wY2+xD4udX612aMqMcB8Ws2Voq6NIUPEtD1be6m411T4uDH/VtL9i//xvcyFlTVfRdaBsk7hV5tgrGQqhuBiw=="
   "resolved" "https://registry.npmjs.org/multer/-/multer-1.4.4.tgz"
   "version" "1.4.4"
@@ -914,7 +924,7 @@
   "resolved" "https://registry.npmjs.org/node-domexception/-/node-domexception-1.0.0.tgz"
   "version" "1.0.0"
 
-"node-fetch@^2.6.0", "node-fetch@^2.6.7":
+"node-fetch@^2.6.0", "node-fetch@^2.6.1", "node-fetch@^2.6.7":
   "integrity" "sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ=="
   "resolved" "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.7.tgz"
   "version" "2.6.7"
@@ -1201,6 +1211,13 @@
   dependencies:
     "ip" "^2.0.0"
     "smart-buffer" "^4.2.0"
+
+"sozlukjs@^2.0.0":
+  "integrity" "sha512-cV/7q0aacDHsh4lkLkG+GiBgxQvvHm4QhUPOWYQGCNt7jK/wub6SzCsmW57QIis7t2HYzuFZMv6sJ1S4Qu0FmA=="
+  "resolved" "https://registry.npmjs.org/sozlukjs/-/sozlukjs-2.0.0.tgz"
+  "version" "2.0.0"
+  dependencies:
+    "node-fetch" "^2.6.1"
 
 "sparse-bitfield@^3.0.3":
   "integrity" "sha512-kvzhi7vqKTfkh0PZU+2D2PIllw2ymqJKujUcyPMd9Y75Nv4nPbGJZXNhxsgdQab2BmlDct1YnfQCguEvHr7VsQ=="
