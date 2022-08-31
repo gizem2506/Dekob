@@ -29,6 +29,8 @@ router
 
 router.route("/uploadphoto/:category").get(moodController.getMoodsForCategory);
 
+router.route("/image/:name").get(moodController.getImageForName);
+
 router
   .route("/random-four")
   .get(moodController.aliasFourData, moodController.getAllMoods);

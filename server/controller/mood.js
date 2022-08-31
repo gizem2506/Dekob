@@ -80,6 +80,14 @@ exports.getMoodsForCategory = async (req, res) => {
   const reqCategory = req.params.category;
   const moods = await Mood.find({ category: reqCategory }).filter();
 
+  /*
+    moods.map((mood) => {
+      mood.img.map((img) => {
+        findImage(img.id, (callback = (file) => {}));
+      });
+    });
+    */
+
   res.status(200).json({
     status: "success",
     results: moods.length,
@@ -101,11 +109,6 @@ exports.getAllMoods = async (req, res) => {
 
     const moods = await Mood.find().limit(req.query.limit);
     //console.log(moods);
-    moods.map((mood) => {
-      mood.img.map((img) => {
-        findImage(img.id, (callback = (file) => {}));
-      });
-    });
 
     res.status(200).json({
       status: "success",
@@ -123,15 +126,28 @@ exports.getAllMoods = async (req, res) => {
   }
 };
 
+exports.getImageForName = (req, res) => {
+  const takenPath = path.resolve(__dirname, "../uploads", req.params.name);
+  res.sendFile(takenPath);
+};
+
 exports.addFileToDB = async (req, res) => {
   try {
     let imgList = [];
     req.files.map((file) => {
       fs.readFileSync(file.path);
 
+      //const takenPath = path.join(__dirname, "./uploads", file.filename);
+
+      /*
+      const takenPath = path.join(
+        "http://localhost:5001/client/src/uploads/",
+        file.filename
+      );
+      */
+
       var new_img = {
         id: file.filename,
-        path: `~/Desktop/DekobTeam/server/uploads/${file.filename}`,
         contentType: file.mimetype,
       };
 
@@ -165,11 +181,11 @@ exports.addFileToDB = async (req, res) => {
 };
 
 const findImage = (imgId, callback) => {
-  fs.readdirSync(`${__dirname}/../uploads`, { withFileTypes: true }).map(
-    (file) => {
-      if (file.name === imgId) {
-        callback(file);
-      }
+  fs.readdirSync(`${path.join(__dirname, "../../client/src/uploads")}`, {
+    withFileTypes: true,
+  }).map((file) => {
+    if (file.name === imgId) {
+      callback(file);
     }
-  );
+  });
 };
