@@ -10,7 +10,7 @@ const Mood = require("../models/mood");
 //Multer Storage
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "../client/src/uploads");
+    cb(null, "uploads");
   },
   filename: function (req, file, cb) {
     const type = file.mimetype.split("/")[1];
@@ -28,6 +28,8 @@ router
   .post(upload.array("files"), moodController.addFileToDB);
 
 router.route("/uploadphoto/:category").get(moodController.getMoodsForCategory);
+
+router.route("/image/:name").get(moodController.getImageForName);
 
 router
   .route("/random-four")

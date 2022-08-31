@@ -26,7 +26,7 @@ function Write3() {
   }, []);
   const getData = async () => {
     await axios
-      .get("http://localhost:5001/api/v1/moods/uploadphoto")
+      .get("http://192.168.1.68:5001/api/v1/moods/uploadphoto")
       .then((response) => {
         setFormData(response.data.data.moods);
         //console.log(response.data.data.moods);
@@ -60,7 +60,7 @@ function Write3() {
         <a className="text-[#56E1FF] mx-5 flex" href="">
           <RefreshIcon className="w-5 mr-2"></RefreshIcon> Rastgele kelime üret
         </a>
-        <div className="grid grid-cols-4 gap-y-5 gap-x-7 m-5">
+        <div className="grid grid-cols-3 text-xl gap-y-5 gap-x-7 m-5">
           <p>{item.title}</p>
           <p>{item.title}</p>
           <p>{item.title}</p>
@@ -70,13 +70,7 @@ function Write3() {
           <p>{item.title}</p>
           <p>{item.title}</p>
           <p>{item.title}</p>
-          <p>{item.title}</p>
-          <p>{item.title}</p>
-          <p>{item.title}</p>
-          <p>{item.title}</p>
-          <p>{item.title}</p>
-          <p>{item.title}</p>
-          <p>{item.title}</p>
+
         </div>
         <button
           onClick={routeChange}
