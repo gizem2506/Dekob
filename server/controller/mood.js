@@ -92,7 +92,7 @@ exports.getMoodsForCategory = async (req, res) => {
 exports.getAllMoods = async (req, res) => {
   try {
     /*
-     const features = new APIFeatures(Tour.find(),req.query)
+     const features = new APIFeatures(Mood.find(),req.query)
                     .filter()
                     .sort()
                     .limiting()
@@ -101,14 +101,16 @@ exports.getAllMoods = async (req, res) => {
 
     const moods = await Mood.find().limit(req.query.limit);
     //console.log(moods);
-
-    /*
     moods.map((mood) => {
-      mood.img.map((buffer) => {
-        base64_decode(buffer, `downloads/file-${Date.now()}`);
+      mood.img.map((img) => {
+        findImage(
+          img.id,
+          (callback = (file) => {
+            const path = `~/Desktop/DekobTeam/server/uploads/${file.name}`;
+          })
+        );
       });
     });
-    */
 
     res.status(200).json({
       status: "success",
@@ -128,32 +130,13 @@ exports.getAllMoods = async (req, res) => {
 
 exports.addFileToDB = async (req, res) => {
   try {
-    /*
-    const readStream = fs.createReadStream(img);
-    const writeStream = fs.createWriteStream("../uploads/", req.file.filename);
-    const compressStream = zlib.createGzip();
-
-    const handleError = () => {
-      console.log("Error");
-      readStream.destroy();
-      writeStream.end("Finishied with error...");
-    };
-
-    readStream
-      .on("error", handleError)
-      .pipe(compressStream)
-      .pipe(writeStream)
-      .on("error", handleError);
-      */
-
-    //var encode_img = img.toString("base64");
     let imgList = [];
     req.files.map((file) => {
-      var img = fs.readFileSync(file.path);
-      var buffer = Buffer.from(img);
+      fs.readFileSync(file.path);
 
       var new_img = {
-        data: buffer,
+        id: file.filename,
+        path: `~/Desktop/DekobTeam/server/uploads/${file.filename}`,
         contentType: file.mimetype,
       };
 
@@ -184,4 +167,14 @@ exports.addFileToDB = async (req, res) => {
       message: err.message,
     });
   }
+};
+
+const findImage = (imgId, callback) => {
+  fs.readdirSync(`${__dirname}/../uploads`, { withFileTypes: true }).map(
+    (file) => {
+      if (file.name === imgId) {
+        callback(file);
+      }
+    }
+  );
 };

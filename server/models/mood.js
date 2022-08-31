@@ -11,7 +11,8 @@ const moodSchema = new mongoose.Schema({
   content: String,
   img: [
     {
-      data: Buffer,
+      id: String,
+      path: String,
       contentType: String,
     },
   ],
