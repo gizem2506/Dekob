@@ -45,7 +45,7 @@ function HomePage() {
                 <button onClick={routeWrite} className='text-purple flex items-center rounded-lg  px-4 py-2 bg-white mx-3 border-2 border-purple'><DocumentTextIcon className='w-5 mr-1'></DocumentTextIcon>Yazıyorum</button>
                 <button onClick={routeDraw} className='text-purple flex items-center rounded-lg px-4 py-2 bg-white mx-3 border-2 border-purple'><PencilIcon className='w-5 mr-1'></PencilIcon>Çiziyorum</button>
                 <button onClick={routeThink} className='text-purple flex items-center rounded-lg px-4 py-2 bg-white mx-3 border-2 border-purple'><SparklesIcon className='w-5 mr-1'></SparklesIcon>Düşünüyorum</button>
-                <button onClick={routeCompose} className='text-purple flex items-center rounded-lg px-4 py-2 bg-white mx-3 border-2 border-purple'> <MusicNoteIcon className='w-5 mr-1'></MusicNoteIcon>Besteliyorum</button>
+                <button onClick={routeCompose} className='text-purple flex items-center rounded-lg px-4 py-2 bg-white mx-3 border-2 border-purple'> <MusicNoteIcon className='w-5 mr-1'></MusicNoteIcon>Mesajlaşalım!</button>
             </div>              
         </div></div>
         <p className='my-5'>veya</p>
