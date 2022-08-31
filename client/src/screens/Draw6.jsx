@@ -6,9 +6,6 @@ import obje3 from "../assets/obje3.jpg"
 import obje4 from "../assets/obje4.jpg"
 import {ArrowRightIcon, RefreshIcon } from '@heroicons/react/outline'
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-const baseUrl = "localhost:5001/api/v1/moods/uploadphoto";
-
 
 function Draw6() {
     let navigate = useNavigate(); 
@@ -16,29 +13,6 @@ function Draw6() {
       let path = `newPath`; 
       navigate("/draw7");
     }
-    const [formData, setFormData] = React.useState([
-        {
-          title: "",
-          category: "",
-          content:"",
-          img: null,
-        },
-      ]);
-      var item = formData[Math.floor(Math.random() * formData.length)];
-      React.useEffect(() => {
-        getData();
-      }, []);
-      const getData = async () => {
-        await axios
-          .get("http://localhost:5001/api/v1/moods/uploadphoto")
-          .then((response) => {
-            setFormData(response.data.data.moods);
-            //console.log(response.data.data.moods);
-          })
-          .catch((error) => {
-            console.log(error.message);
-          });
-      };
   return (
     <div className='w-full h-screen flex flex-col justify-center'>
         <div className="w-full h-screen absolute z-100">
@@ -53,21 +27,6 @@ function Draw6() {
             <a className='text-[#56E1FF] mx-5 flex' href=""><RefreshIcon className='w-5 mr-2'></RefreshIcon> Rastgele obje öner</a>
             <div className='grid grid-cols-2 lg:grid-cols-4 gap-y-5 gap-x-7 m-5'>
                 <div className='flex flex-col items-center'>
-                    <img className='m-5 w-[100px] h-[100px] md:w-[150px] md:h-[150px]' src={item.img} alt="" />
-                    <p className='text-white text-md md:text-lg'>{item.title}</p>
-                </div>
-                <div className='flex flex-col items-center'>
-                    <img className='m-5 w-[100px] h-[100px] md:w-[150px] md:h-[150px]' src={item.img} alt="" />
-                    <p className='text-white text-md md:text-lg'>{item.title}</p>
-                </div>
-                <div className='flex flex-col items-center'>
-                    <img className='m-5 w-[100px] h-[100px] md:w-[150px] md:h-[150px]' src={item.img} alt="" />
-                    <p className='text-white text-md md:text-lg'>{item.title}</p>
- 
-                </div>
-                <div className='flex flex-col items-center'>
-                    <img className='m-5 w-[100px] h-[100px] md:w-[150px] md:h-[150px]' src={item.img} alt="" />
-                    <p className='text-white text-md md:text-lg'>{item.title}</p>
                     <img className='m-5 w-[100px] h-[100px] md:w-[150px] md:h-[150px]' src={obje1} alt="" />
                     <p className='text-white text-md md:text-lg'>Dondurma külahı</p>
                 </div>

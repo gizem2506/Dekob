@@ -51,16 +51,16 @@ function Write2() {
                     <p className='text-content text-[14px] md:text-[16px]'>{item.content}</p>
                 </div>
                 <div>
-                    <h1 className='text-2xl'>{item.title}</h1>
-                    <p className='text-content text-[14px] md:text-[16px]'>{item.content}</p>
+                    <h1 className='text-2xl'>Konu 2</h1>
+                    <p className='text-content text-[14px] md:text-[16px]'>Konu 2 hakkında uzunca bir açıklama. Toplamda maksimum 2 satır olacak şekilde</p>
                 </div>
                 <div>
-                    <h1 className='text-2xl'>{item.title}</h1>
-                    <p className='text-content text-[14px] md:text-[16px]'>{item.content}</p>
+                    <h1 className='text-2xl'>Konu 3</h1>
+                    <p className='text-content text-[14px] md:text-[16px]'>Konu 3 hakkında uzunca bir açıklama. Toplamda maksimum 2 satır olacak şekilde</p>
                 </div>
                 <div>
-                    <h1 className='text-2xl'>{item.title}</h1>
-                    <p className='text-content text-[14px] md:text-[16px]'>{item.content}</p>
+                    <h1 className='text-2xl'>Konu 4</h1>
+                    <p className='text-content text-[14px] md:text-[16px]'>Konu 4 hakkında uzunca bir açıklama. Toplamda maksimum 2 satır olacak şekilde</p>
                 </div>
             </div>
             <button onClick={routeChange} className='text-purple px-[16px] py-[8px] bg-white flex float-right items-center rounded-lg'> <span className='hidden md:block'>Devam edin</span>  <ArrowRightIcon className='w-5 md:ml-2'></ArrowRightIcon></button>

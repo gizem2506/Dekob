@@ -3,40 +3,13 @@ import bgImg from "../assets/manzara17.jpg"
 import {ArrowRightIcon, RefreshIcon } from '@heroicons/react/outline'
 import { useNavigate } from "react-router-dom";
 
-import axios from "axios";
-const baseUrl = "localhost:5001/api/v1/moods/uploadphoto";
-
-
 function Think3() {
     let navigate = useNavigate(); 
     const routeChange = () =>{ 
       let path = `newPath`; 
       navigate("/think4");
     }
-
-    const [formData, setFormData] = React.useState([
-      {
-        title: "",
-        category: "",
-        content:"",
-        img: null,
-      },
-    ]);
-    var item = formData[Math.floor(Math.random() * formData.length)];
-    React.useEffect(() => {
-      getData();
-    }, []);
-    const getData = async () => {
-      await axios
-        .get("http://localhost:5001/api/v1/moods/uploadphoto")
-        .then((response) => {
-          setFormData(response.data.data.moods);
-          //console.log(response.data.data.moods);
-        })
-        .catch((error) => {
-          console.log(error.message);
-        });
-    };
+  
   return (
     <div className='w-full h-screen flex flex-col justify-center'>
         <div className="w-full h-screen absolute z-100">
@@ -52,11 +25,6 @@ function Think3() {
             <a className='text-[#56E1FF] mx-5 flex' href=""><RefreshIcon className='w-5 mr-2'></RefreshIcon>Seni düşünmeye yöneltecek sorular</a>
             <div className='grid md:grid-cols-2 gap-y-5 gap-x-7 m-5'>
                 
-                    <h1 className='text-xl'>{item.title}</h1>
-                    <h1 className='text-xl'>{item.title}</h1>
-                    <h1 className='text-xl'>{item.title}</h1>
-                    <h1 className='text-xl'>{item.title}</h1>
-
                     <h1 className='text-xl'>Soru 1</h1>
                     <h1 className='text-xl'>Soru 2</h1>
                     <h1 className='text-xl'>Soru 3</h1>
