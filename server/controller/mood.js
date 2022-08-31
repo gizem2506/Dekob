@@ -103,12 +103,7 @@ exports.getAllMoods = async (req, res) => {
     //console.log(moods);
     moods.map((mood) => {
       mood.img.map((img) => {
-        findImage(
-          img.id,
-          (callback = (file) => {
-            const path = `~/Desktop/DekobTeam/server/uploads/${file.name}`;
-          })
-        );
+        findImage(img.id, (callback = (file) => {}));
       });
     });
 
