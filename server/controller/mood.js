@@ -78,7 +78,7 @@ exports.insertMood = async (req, res) => {
 
 exports.getMoodsForCategory = async (req, res) => {
   const reqCategory = req.params.category;
-  const moods = await Mood.find({ category: reqCategory }).filter();
+  const moods = await Mood.find({ category: reqCategory });
 
   /*
     moods.map((mood) => {
@@ -126,17 +126,28 @@ exports.getAllMoods = async (req, res) => {
   }
 };
 
+exports.getImageForName = (req, res) => {
+  const takenPath = path.resolve(__dirname, "../uploads", req.params.name);
+  res.sendFile(takenPath);
+};
+
 exports.addFileToDB = async (req, res) => {
   try {
     let imgList = [];
     req.files.map((file) => {
       fs.readFileSync(file.path);
 
-      const takenPath = path.join("../uploads", file.filename);
-      console.log(takenPath);
+      //const takenPath = path.join(__dirname, "./uploads", file.filename);
+
+      /*
+      const takenPath = path.join(
+        "http://localhost:5001/client/src/uploads/",
+        file.filename
+      );
+      */
+
       var new_img = {
         id: file.filename,
-        path: takenPath,
         contentType: file.mimetype,
       };
 

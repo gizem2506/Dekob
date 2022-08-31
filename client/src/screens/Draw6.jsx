@@ -7,7 +7,6 @@ import obje4 from "../assets/obje4.jpg"
 import {ArrowRightIcon, RefreshIcon } from '@heroicons/react/outline'
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { io } from "socket.io-client";
 const baseUrl = "localhost:5001/api/v1/moods/uploadphoto";
 
 function Draw6() {
