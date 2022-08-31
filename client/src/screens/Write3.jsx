@@ -3,9 +3,6 @@ import bgImg from "../assets/manzara4.jpeg";
 import { ArrowRightIcon, RefreshIcon } from "@heroicons/react/outline";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
-import { write3 } from "../axios";
-
 const baseUrl = "localhost:5001/api/v1/moods/uploadphoto";
 
 function Write3() {
@@ -19,10 +16,11 @@ function Write3() {
     {
       title: "",
       category: "",
+      content:"",
       img: null,
     },
   ]);
-
+  var item = formData[Math.floor(Math.random() * formData.length)];
   React.useEffect(() => {
     getData();
   }, []);
@@ -37,7 +35,6 @@ function Write3() {
         console.log(error.message);
       });
   };
-
   return (
     <div className="w-full h-screen flex flex-col justify-center">
       <div className="w-full h-screen absolute z-100">
@@ -64,22 +61,22 @@ function Write3() {
           <RefreshIcon className="w-5 mr-2"></RefreshIcon> Rastgele kelime üret
         </a>
         <div className="grid grid-cols-4 gap-y-5 gap-x-7 m-5">
-          <p>{formData[0].title}</p>
-          <p>{formData[1].title}</p>
-          <p>lorem</p>
-          <p>lorem</p>
-          <p>lorem</p>
-          <p>lorem</p>
-          <p>lorem</p>
-          <p>lorem</p>
-          <p>lorem</p>
-          <p>lorem</p>
-          <p>lorem</p>
-          <p>lorem</p>
-          <p>lorem</p>
-          <p>lorem</p>
-          <p>lorem</p>
-          <p>lorem</p>
+          <p>{item.title}</p>
+          <p>{item.title}</p>
+          <p>{item.title}</p>
+          <p>{item.title}</p>
+          <p>{item.title}</p>
+          <p>{item.title}</p>
+          <p>{item.title}</p>
+          <p>{item.title}</p>
+          <p>{item.title}</p>
+          <p>{item.title}</p>
+          <p>{item.title}</p>
+          <p>{item.title}</p>
+          <p>{item.title}</p>
+          <p>{item.title}</p>
+          <p>{item.title}</p>
+          <p>{item.title}</p>
         </div>
         <button
           onClick={routeChange}
