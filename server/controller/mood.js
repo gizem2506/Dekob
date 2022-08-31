@@ -78,7 +78,7 @@ exports.insertMood = async (req, res) => {
 
 exports.getMoodsForCategory = async (req, res) => {
   const reqCategory = req.params.category;
-  const moods = await Mood.find({ category: reqCategory }).filter();
+  const moods = await Mood.find({ category: reqCategory });
 
   /*
     moods.map((mood) => {
