@@ -67,7 +67,7 @@ function Draw5() {
             <p className='mr-3'>5</p>
             <h1 className='text-lg md:text-2xl font-bold'>Rastgele bir şeyler karalamaya başla! Belkide gerisi gelir..</h1>
         </div>
-        <div className="z-10 ">
+        <div className="z-10 transform scale-75 md:scale-100">
             <div className="bg-white flex justify-center w-[600px] h-[400px] ">
             <canvas
                 onMouseDown={startDrawing}

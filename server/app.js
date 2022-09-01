@@ -21,4 +21,36 @@ app.use(bodyParser.json());
 //app.use(fileUpload());
 app.use("/api/v1/moods", moodRoutes);
 
+const server = require("http").createServer();
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "*",
+  },
+});
+var clients = [];
+var messages = [];
+io.on("connection", (client) => {
+  clients.push(client);
+  console.log("new connection");
+  client.emit("message-list", messages.slice(messages.length - 12, 12));
+  client.emit("specific-message", client);
+  client.on("specific-message", (data) => {
+    console.log(data);
+  });
+  client.on("event", (data) => {
+    //console.log(client.emit("event", data));
+    var date = new Date();
+    data.time = date.getHours() + ":" + date.getMinutes();
+    clients.map((client) => client.emit("event", data));
+    messages.push(data);
+    console.log(data);
+  });
+  client.on("disconnect", (client) => {
+    /* … */
+    console.log("disconnect");
+    clients = clients.filter((c) => c.id !== client.id);
+  });
+});
+server.listen(5002);
+
 module.exports = app;

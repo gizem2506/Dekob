@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { Blob } = require("buffer");
 const moodSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -9,17 +8,14 @@ const moodSchema = new mongoose.Schema({
     type: String,
     required: [true, "A mood must have a category"],
   },
-  conent: {
-    type: String,
-  },
+  content: String,
   img: [
     {
-      data: Buffer,
+      id: String,
       contentType: String,
     },
   ],
 });
 
 const Mood = mongoose.model("Mood", moodSchema);
-
 module.exports = Mood;

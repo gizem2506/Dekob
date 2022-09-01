@@ -1,6 +1,4 @@
 const Mood = require("../models/mood");
-const GridFsStorage = require("multer-gridfs-storage");
-const Grid = require("gridfs-stream");
 const crypto = require("crypto");
 const path = require("path");
 //const fileUpload = require("express-fileupload");
@@ -79,22 +77,48 @@ exports.insertMood = async (req, res) => {
 */
 
 exports.getMoodsForCategory = async (req, res) => {
-  const category = req.params.category;
-  const moods = await Mood.find().filter({ category: category });
+  try {
+    const reqCategory = req.params.category;
+    const moods = await Mood.find({ category: reqCategory });
 
-  res.status(200).json({
-    status: "success",
-    results: moods.length,
-    data: {
-      moods,
-    },
-  });
+    res.status(200).json({
+      status: "success",
+      results: moods.length,
+      data: {
+        moods,
+      },
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: "failed",
+      message: err.message,
+    });
+  }
+};
+
+exports.getMoodForId = async (req, res) => {
+  try {
+    const moodId = req.params.id;
+    const mood = await Mood.findById(moodId);
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        mood,
+      },
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: "success",
+      message: err.message,
+    });
+  }
 };
 
 exports.getAllMoods = async (req, res) => {
   try {
     /*
-     const features = new APIFeatures(Tour.find(),req.query)
+     const features = new APIFeatures(Mood.find(),req.query)
                     .filter()
                     .sort()
                     .limiting()
@@ -102,7 +126,7 @@ exports.getAllMoods = async (req, res) => {
     */
 
     const moods = await Mood.find().limit(req.query.limit);
-    console.log(moods);
+    //console.log(moods);
 
     res.status(200).json({
       status: "success",
@@ -120,41 +144,40 @@ exports.getAllMoods = async (req, res) => {
   }
 };
 
+exports.getImageForName = (req, res) => {
+  const takenPath = path.resolve(__dirname, "../uploads", req.params.name);
+  res.sendFile(takenPath);
+};
+
+exports.renderHtml = (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+};
+
 exports.addFileToDB = async (req, res) => {
   try {
-    /*
-    const readStream = fs.createReadStream(img);
-    const writeStream = fs.createWriteStream("../uploads/", req.file.filename);
-    const compressStream = zlib.createGzip();
-
-    const handleError = () => {
-      console.log("Error");
-      readStream.destroy();
-      writeStream.end("Finishied with error...");
-    };
-
-    readStream
-      .on("error", handleError)
-      .pipe(compressStream)
-      .pipe(writeStream)
-      .on("error", handleError);
-      */
-
-    //var encode_img = img.toString("base64");
     let imgList = [];
     req.files.map((file) => {
-      var img = fs.readFileSync(file.path);
-      var buffer = Buffer.from(img);
+      fs.readFileSync(file.path);
 
-      var img = {
-        data: buffer,
+      //const takenPath = path.join(__dirname, "./uploads", file.filename);
+
+      /*
+      const takenPath = path.join(
+        "http://localhost:5001/client/src/uploads/",
+        file.filename
+      );
+      */
+
+      var new_img = {
+        id: file.filename,
         contentType: file.mimetype,
       };
 
-      imgList.push(img);
+      imgList.push(new_img);
     });
     var final_img = {
       title: req.body.title,
+      content: req.body.content,
       category: req.body.category,
       img: imgList,
     };
@@ -177,4 +200,14 @@ exports.addFileToDB = async (req, res) => {
       message: err.message,
     });
   }
+};
+
+const findImage = (imgId, callback) => {
+  fs.readdirSync(`${path.join(__dirname, "../../client/src/uploads")}`, {
+    withFileTypes: true,
+  }).map((file) => {
+    if (file.name === imgId) {
+      callback(file);
+    }
+  });
 };
