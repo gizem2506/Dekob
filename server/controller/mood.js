@@ -87,14 +87,42 @@ exports.getMoodsForCategory = async (req, res) => {
       });
     });
     */
+  try {
+    const reqCategory = req.params.category;
+    const moods = await Mood.find({ category: reqCategory });
 
-  res.status(200).json({
-    status: "success",
-    results: moods.length,
-    data: {
-      moods,
-    },
-  });
+    res.status(200).json({
+      status: "success",
+      results: moods.length,
+      data: {
+        moods,
+      },
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: "failed",
+      message: err.message,
+    });
+  }
+};
+
+exports.getMoodForId = async (req, res) => {
+  try {
+    const moodId = req.params.id;
+    const mood = await Mood.findById(moodId);
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        mood,
+      },
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: "success",
+      message: err.message,
+    });
+  }
 };
 
 exports.getAllMoods = async (req, res) => {
@@ -129,6 +157,11 @@ exports.getAllMoods = async (req, res) => {
 exports.getImageForName = (req, res) => {
   const takenPath = path.resolve(__dirname, "../uploads", req.params.name);
   res.sendFile(takenPath);
+};
+
+
+exports.renderHtml = (req, res) => {
+  res.sendFile(__dirname + "/index.html");
 };
 
 exports.addFileToDB = async (req, res) => {
@@ -189,3 +222,4 @@ const findImage = (imgId, callback) => {
     }
   });
 };
+

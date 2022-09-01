@@ -6,6 +6,7 @@ const fs = require("fs");
 
 const router = express.Router();
 const Mood = require("../models/mood");
+const { Router } = require("express");
 
 //Multer Storage
 var storage = multer.diskStorage({
@@ -29,6 +30,8 @@ router
 
 router.route("/uploadphoto/:category").get(moodController.getMoodsForCategory);
 
+router.route("/mood/:id").get(moodController.getMoodForId);
+
 router.route("/image/:name").get(moodController.getImageForName);
 
 router
@@ -38,3 +41,6 @@ router
 //router.route("/").get(moodController.getAllMoods);
 
 module.exports = router;
+
+module.exports = router;
+
