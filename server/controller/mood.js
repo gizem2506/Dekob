@@ -17,76 +17,7 @@ exports.aliasFourData = (req, res, next) => {
   next();
 };
 
-//const binary = mongoose.mongo.Binary;
-
-/*
-exports.getAllMoods = async (req, res, next) => {
-  try {
-    const moods = await Mood.find();
-
-    moods.map((m) => {
-      converter.convertBase64toImage(m.images, m._id);
-    });
-
-    res.status(200).json({
-      status: "success",
-      results: moods.length,
-      data: {
-        moods,
-      },
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: "Failed",
-      message: err.message,
-    });
-  }
-};
-*/
-
-/*
-exports.insertMood = async (req, res) => {
-  var base64;
-  await converter.convertImageToBase64(
-    "image.jpg",
-    (callback = (response) => {
-      base64 = response;
-    })
-  );
-
-  try {
-    const newMood = await Mood.create({
-      title: "yeni",
-      category: "sdasds",
-      images: base64,
-    });
-
-    res.status(201).json({
-      status: "success",
-      data: {
-        mood: newMood,
-      },
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: "Failed",
-      message: err.message,
-    });
-  }
-};
-*/
-
 exports.getMoodsForCategory = async (req, res) => {
-  const reqCategory = req.params.category;
-  const moods = await Mood.find({ category: reqCategory });
-
-  /*
-    moods.map((mood) => {
-      mood.img.map((img) => {
-        findImage(img.id, (callback = (file) => {}));
-      });
-    });
-    */
   try {
     const reqCategory = req.params.category;
     const moods = await Mood.find({ category: reqCategory });
@@ -127,14 +58,6 @@ exports.getMoodForId = async (req, res) => {
 
 exports.getAllMoods = async (req, res) => {
   try {
-    /*
-     const features = new APIFeatures(Mood.find(),req.query)
-                    .filter()
-                    .sort()
-                    .limiting()
-                    .paginate();
-    */
-
     const moods = await Mood.find().limit(req.query.limit);
     //console.log(moods);
 
@@ -159,14 +82,11 @@ exports.getImageForName = (req, res) => {
   res.sendFile(takenPath);
 };
 
-
-exports.renderHtml = (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-};
-
 exports.addFileToDB = async (req, res) => {
   try {
     let imgList = [];
+    let vidList = [];
+    let audList = [];
     req.files.map((file) => {
       fs.readFileSync(file.path);
 
@@ -179,20 +99,37 @@ exports.addFileToDB = async (req, res) => {
       );
       */
 
-      var new_img = {
-        id: file.filename,
-        contentType: file.mimetype,
-      };
+      const mimetype = file.mimetype.toString();
 
-      imgList.push(new_img);
+      if (mimetype.startsWith("image")) {
+        var new_img = {
+          id: file.filename,
+          contentType: file.mimetype,
+        };
+        imgList.push(new_img);
+      } else if (mimetype.startsWith("video")) {
+        var new_vid = {
+          id: file.filename,
+          contentType: file.mimetype,
+        };
+        vidList.push(new_vid);
+      } else if (mimetype.startsWith("audio")) {
+        var new_aud = {
+          id: file.filename,
+          contentType: file.mimetype,
+        };
+        audList.push(new_aud);
+      }
     });
-    var final_img = {
+    var final_file = {
       title: req.body.title,
       content: req.body.content,
       category: req.body.category,
       img: imgList,
+      video: vidList,
+      audio: audList,
     };
-    Mood.create(final_img, function (err, result) {
+    Mood.create(final_file, function (err, result) {
       if (err) {
         res.status(400).json({
           status: "failed",
@@ -212,14 +149,3 @@ exports.addFileToDB = async (req, res) => {
     });
   }
 };
-
-const findImage = (imgId, callback) => {
-  fs.readdirSync(`${path.join(__dirname, "../../client/src/uploads")}`, {
-    withFileTypes: true,
-  }).map((file) => {
-    if (file.name === imgId) {
-      callback(file);
-    }
-  });
-};
-

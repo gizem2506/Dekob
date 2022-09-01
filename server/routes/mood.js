@@ -41,6 +41,3 @@ router
 //router.route("/").get(moodController.getAllMoods);
 
 module.exports = router;
-
-module.exports = router;
-

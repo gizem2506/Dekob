@@ -12,13 +12,22 @@ const moodSchema = new mongoose.Schema({
   img: [
     {
       id: String,
-      path: String,
+      contentType: String,
+    },
+  ],
+  audio: [
+    {
+      id: String,
+      contentType: String,
+    },
+  ],
+  video: [
+    {
+      id: String,
       contentType: String,
     },
   ],
 });
 
 const Mood = mongoose.model("Mood", moodSchema);
-module.exports = Mood;
-
 module.exports = Mood;
