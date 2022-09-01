@@ -30,9 +30,9 @@ router
 
 router.route("/uploadphoto/:category").get(moodController.getMoodsForCategory);
 
+router.route("/mood/:id").get(moodController.getMoodForId);
+
 router.route("/image/:name").get(moodController.getImageForName);
-router.route("/").get(moodController.renderHtml);
-router.route("/video").get(moodController.streamVideo);
 
 router
   .route("/random-four")

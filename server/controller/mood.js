@@ -77,24 +77,42 @@ exports.insertMood = async (req, res) => {
 */
 
 exports.getMoodsForCategory = async (req, res) => {
-  const reqCategory = req.params.category;
-  const moods = await Mood.find({ category: reqCategory });
+  try {
+    const reqCategory = req.params.category;
+    const moods = await Mood.find({ category: reqCategory });
 
-  /*
-    moods.map((mood) => {
-      mood.img.map((img) => {
-        findImage(img.id, (callback = (file) => {}));
-      });
+    res.status(200).json({
+      status: "success",
+      results: moods.length,
+      data: {
+        moods,
+      },
     });
-    */
+  } catch (err) {
+    res.status(500).json({
+      status: "failed",
+      message: err.message,
+    });
+  }
+};
 
-  res.status(200).json({
-    status: "success",
-    results: moods.length,
-    data: {
-      moods,
-    },
-  });
+exports.getMoodForId = async (req, res) => {
+  try {
+    const moodId = req.params.id;
+    const mood = await Mood.findById(moodId);
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        mood,
+      },
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: "success",
+      message: err.message,
+    });
+  }
 };
 
 exports.getAllMoods = async (req, res) => {
