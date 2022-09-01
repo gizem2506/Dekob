@@ -131,6 +131,10 @@ exports.getImageForName = (req, res) => {
   res.sendFile(takenPath);
 };
 
+exports.renderHtml = (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+};
+
 exports.addFileToDB = async (req, res) => {
   try {
     let imgList = [];

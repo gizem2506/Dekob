@@ -34,8 +34,8 @@ io.on("connection", (client) => {
   console.log("new connection");
   client.emit("message-list", messages.slice(messages.length - 12, 12));
   client.emit("specific-message", client);
-  client.on("specific-message", (client) => {
-    console.log(client);
+  client.on("specific-message", (data) => {
+    console.log(data);
   });
   client.on("event", (data) => {
     //console.log(client.emit("event", data));
